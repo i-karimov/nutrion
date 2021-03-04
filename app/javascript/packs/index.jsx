@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom';
 
 import Home from '../components/Home';
 
-const Index = (props) => <div>Index</div>;
+const Index = (props) => (
+  <div>
+    <Home />
+  </div>
+);
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
