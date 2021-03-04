@@ -1,17 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Home from '../components/Home';
-
-const Index = (props) => (
-  <div>
-    <Home />
-  </div>
-);
+import App from 'components/App';
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Index name='React' />,
+    <App />,
     document.body.appendChild(document.createElement('div'))
   );
 });
