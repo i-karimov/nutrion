@@ -56,3 +56,4 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # JSON
 gem 'fast_jsonapi'
 gem 'oj'
+gem 'ransack'
