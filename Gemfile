@@ -58,8 +58,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Auth
 gem 'devise'
-gem 'devise-i18n' 
 gem 'devise-bootstrap-views', '~> 1.0'
+gem 'devise-i18n'
 
 # JSON
 gem 'fast_jsonapi'
