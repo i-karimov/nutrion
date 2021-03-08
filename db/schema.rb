@@ -15,22 +15,20 @@ ActiveRecord::Schema.define(version: 2021_03_07_234801) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "food_categories", force: :cascade do |t|
-    t.string "code"
-    t.string "description"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["code"], name: "index_food_categories_on_code"
-  end
-
   create_table "foods", force: :cascade do |t|
     t.string "data_type"
     t.string "description"
-    t.bigint "food_category_id"
+    t.bigint "wweia_food_category_id"
     t.date "publication_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["food_category_id"], name: "index_foods_on_food_category_id"
+    t.index ["wweia_food_category_id"], name: "index_foods_on_wweia_food_category_id"
+  end
+
+  create_table "wweia_food_categories", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

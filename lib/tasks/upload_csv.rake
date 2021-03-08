@@ -54,7 +54,7 @@ namespace :upload_csv do
   task foods: :environment do
     upload 'food.csv',
            Food,
-           keymap: { fdc_id: :id }
+           keymap: { fdc_id: :id, food_category_id: :wweia_food_category_id }
   end
 
   task food_nutrient_sources: :environment do
@@ -120,10 +120,11 @@ namespace :upload_csv do
     upload 'sub_sample_result.csv',
            SubSampleResult
   end
+
   task wweia_food_categories: :environment do
     upload 'wweia_food_category.csv',
            WweiaFoodCategory,
-           keymap: { wweia_food_category_code: :id, wweia_food_category_description: :description }
+           keymap: { wweia_food_category: :id, wweia_food_category_description: :description }
   end
 
   task survey_fndds_foods: :environment do
@@ -171,7 +172,8 @@ namespace :upload_csv do
 
   task all: :environment do
     tables = [
-      'food_categories',
+      # 'food_categories',
+      'wweia_food_categories',
       'foods',
       # 'food_nutrient_conversion_factors',
       # 'food_calorie_conversion_factors',
