@@ -13,6 +13,7 @@ gem 'puma', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 gem 'sass-rails', '>= 6'
+
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -57,6 +58,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Auth
 gem 'devise'
+gem 'devise-i18n' 
+gem 'devise-bootstrap-views', '~> 1.0'
 
 # JSON
 gem 'fast_jsonapi'
