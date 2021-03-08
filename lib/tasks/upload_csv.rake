@@ -54,8 +54,7 @@ namespace :upload_csv do
   task foods: :environment do
     upload 'food.csv',
            Food,
-           keymap: { fdc_id: :id },
-           filter: [:publication_date]
+           keymap: { fdc_id: :id }
   end
 
   task food_nutrient_sources: :environment do
@@ -173,7 +172,7 @@ namespace :upload_csv do
   task all: :environment do
     tables = [
       'food_categories',
-      # 'foods',
+      'foods',
       # 'food_nutrient_conversion_factors',
       # 'food_calorie_conversion_factors',
       # 'food_protein_conversion_factors',
@@ -181,7 +180,7 @@ namespace :upload_csv do
       # 'food_nutrients',
     ]
 
-    tables.uniq.each { |t| Rake::Task["import:#{t}"].invoke }
+    tables.uniq.each { |t| Rake::Task["upload_csv:#{t}"].invoke }
   end
 end
 # rubocop:enable Metrics/BlockLength
