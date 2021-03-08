@@ -76,7 +76,7 @@ namespace :upload_csv do
     upload 'food_nutrient.csv',
            FoodNutrient,
            keymap: { fdc_id: :food_id, derivation_id: :food_nutrient_derivation_id },
-           filter: [:min_year_acquired, :food_nutrient_derivation_id]
+           filter: %i[min_year_acquired food_nutrient_derivation_id]
   end
 
   task measure_units: :environment do
@@ -112,8 +112,8 @@ namespace :upload_csv do
 
   task lab_method_nutrients: :environment do
     upload 'lab_method_nutrient.csv',
-    LabMethodNutrient,
-    keymap: { nutrient_id: :nutrient_incoming_names_id }
+           LabMethodNutrient,
+           keymap: { nutrient_id: :nutrient_incoming_names_id }
   end
 
   task sub_sample_results: :environment do
@@ -131,7 +131,7 @@ namespace :upload_csv do
     upload 'survey_fndds_food.csv',
            SurveyFnddsFood,
            keymap: { fdc_id: :food_id, food_code: :id, wweia_category_code: :wweia_food_category_id },
-           filter: [:start_date, :end_date]
+           filter: %i[start_date end_date]
   end
 
   task food_components: :environment do
@@ -174,7 +174,7 @@ namespace :upload_csv do
     tables = [
       # 'food_categories',
       'wweia_food_categories',
-      'foods',
+      'foods'
       # 'food_nutrient_conversion_factors',
       # 'food_calorie_conversion_factors',
       # 'food_protein_conversion_factors',
