@@ -1,0 +1,5 @@
+<h1>Web::Admin::Foods#index</h1>
+<% @foods.each do |food| %>
+  <div><%= food.description %></div>
+<%end%>
+ <%== pagy_bootstrap_nav_js(@pagy) %>
