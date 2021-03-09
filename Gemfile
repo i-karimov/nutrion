@@ -74,4 +74,4 @@ gem 'pagy'
 gem 'ransack'
 
 # Views
-gem 'slim_rails'
+gem 'slim-rails'
