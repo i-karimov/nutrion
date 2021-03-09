@@ -72,3 +72,6 @@ gem 'pagy'
 
 # Queries
 gem 'ransack'
+
+# Views
+gem 'slim_rails'
