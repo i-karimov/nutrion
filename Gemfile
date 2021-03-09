@@ -75,3 +75,6 @@ gem 'ransack'
 
 # Views
 gem 'slim-rails'
+
+# Admin dashboard
+gem 'activeadmin'
