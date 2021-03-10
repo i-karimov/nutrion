@@ -78,3 +78,4 @@ gem 'slim-rails'
 
 # Admin dashboard
 gem 'activeadmin'
+gem 'arctic_admin'
