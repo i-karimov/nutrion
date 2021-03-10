@@ -4,4 +4,8 @@ class Food < ApplicationRecord
   belongs_to :wweia_food_category
   has_many :food_nutrients, dependent: :destroy
   has_many :nutrients, through: :food_nutrients
+
+  def name
+    description
+  end
 end

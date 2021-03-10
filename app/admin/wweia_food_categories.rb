@@ -4,7 +4,7 @@ ActiveAdmin.register WweiaFoodCategory do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :description
+  permit_params :description
   #
   # or
   #
@@ -13,6 +13,7 @@ ActiveAdmin.register WweiaFoodCategory do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
+
   remove_filter :foods
   remove_filter :roles
 end
