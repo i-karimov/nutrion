@@ -174,7 +174,8 @@ namespace :upload_csv do
     tables = [
       # 'food_categories',
       'wweia_food_categories',
-      'foods'
+      'foods',
+      'nutirents'
       # 'food_nutrient_conversion_factors',
       # 'food_calorie_conversion_factors',
       # 'food_protein_conversion_factors',
