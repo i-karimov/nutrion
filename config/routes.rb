@@ -9,7 +9,7 @@ Rails.application.routes.draw do
       resources :foods, only: [:index]
     end
   end
-  
+
   root 'home#index'
   get '/*path' => 'homepage#index'
 end

@@ -10,3 +10,17 @@ AllCops:
     - 'db/**/*'
     - 'bin/**/*'
     - 'node_modules/**/*'
+    - '**/*/*.rake'
+    - 'config/initializers/**/*'
+
+Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+  IgnoredMethods: ['describe', 'context', 'configure']
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

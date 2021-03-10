@@ -1,5 +1,4 @@
 ActiveAdmin.register WweiaFoodCategory do
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -16,5 +15,4 @@ ActiveAdmin.register WweiaFoodCategory do
   # end
   remove_filter :foods
   remove_filter :roles
-  
 end

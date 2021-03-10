@@ -171,11 +171,11 @@ namespace :upload_csv do
   end
 
   task all: :environment do
-    tables = [
-      'wweia_food_categories',
-      'foods',
-      'nutirents',
-      'food_nutrients',
+    tables = %w[
+      wweia_food_categories
+      foods
+      nutirents
+      food_nutrients
     ]
 
     tables.uniq.each { |t| Rake::Task["upload_csv:#{t}"].invoke }
