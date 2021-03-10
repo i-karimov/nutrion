@@ -4,5 +4,5 @@ class Food < ApplicationRecord
   belongs_to :wweia_food_category
 
   has_many :food_nutrients
-  has_many :nutrients, though: :food_nutrients
+  has_many :nutrients, through: :food_nutrients
 end

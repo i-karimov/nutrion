@@ -1,5 +1,5 @@
 require 'csv'
-BATCH_SIZE = 100_000
+BATCH_SIZE = 500_000
 BASE_PATH = Rails.root.join('usda/csv_tables')
 
 def progress_line(current, max)
@@ -172,15 +172,10 @@ namespace :upload_csv do
 
   task all: :environment do
     tables = [
-      # 'food_categories',
       'wweia_food_categories',
       'foods',
-      'nutirents'
-      # 'food_nutrient_conversion_factors',
-      # 'food_calorie_conversion_factors',
-      # 'food_protein_conversion_factors',
-      # 'nutrients',
-      # 'food_nutrients',
+      'nutirents',
+      'food_nutrients',
     ]
 
     tables.uniq.each { |t| Rake::Task["upload_csv:#{t}"].invoke }
