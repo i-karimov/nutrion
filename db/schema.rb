@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_000649) do
+ActiveRecord::Schema.define(version: 2021_03_10_003238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,22 @@ ActiveRecord::Schema.define(version: 2021_03_10_000649) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "food_nutrients", force: :cascade do |t|
+    t.bigint "food_id", null: false
+    t.bigint "nutrient_id", null: false
+    t.float "amount"
+    t.integer "data_points"
+    t.float "min"
+    t.float "max"
+    t.float "median"
+    t.string "footnote"
+    t.integer "min_year_acquired"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_id"], name: "index_food_nutrients_on_food_id"
+    t.index ["nutrient_id"], name: "index_food_nutrients_on_nutrient_id"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -99,4 +115,6 @@ ActiveRecord::Schema.define(version: 2021_03_10_000649) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "food_nutrients", "foods"
+  add_foreign_key "food_nutrients", "nutrients"
 end
