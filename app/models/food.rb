@@ -7,7 +7,7 @@ class Food < ApplicationRecord
   has_many :food_nutrients, dependent: :destroy
   has_many :nutrients, through: :food_nutrients
 
-  # def name
-  #   description
-  # end
+  def name
+    description
+  end
 end
