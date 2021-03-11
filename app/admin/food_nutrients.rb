@@ -1,5 +1,4 @@
 ActiveAdmin.register FoodNutrient do
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -15,5 +14,4 @@ ActiveAdmin.register FoodNutrient do
   #   permitted
   # end
   remove_filter :food
-
 end

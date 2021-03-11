@@ -13,7 +13,5 @@ ActiveAdmin.register Food do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  remove_filter :food_nutrients 
-
-
+  remove_filter :food_nutrients
 end

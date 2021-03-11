@@ -79,3 +79,7 @@ gem 'slim-rails'
 # Admin dashboard
 gem 'activeadmin'
 gem 'arctic_admin'
+
+# DB data localization
+gem 'activemodel-serializers-xml'
+gem 'globalize', git: 'https://github.com/globalize/globalize'

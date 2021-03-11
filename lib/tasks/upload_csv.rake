@@ -17,7 +17,8 @@ def stamps
   { created_at: Time.now, updated_at: Time.now }
 end
 
-def upload(filename, model, keymap: {}, filter: [])
+def upload(filename, model, keymap: {}, filter: [], add: {})
+  puts "\n========= #{model.name} ========="
   puts("Reading: #{filename}")
   file = File.open(BASE_PATH.join(filename))
   list = []
@@ -32,6 +33,7 @@ def upload(filename, model, keymap: {}, filter: [])
   CSV.foreach(file, options) do |row|
     hash = row.to_h
     rec = hash.slice(*(hash.keys - filter))
+    rec = rec.merge(add) if add.present?
     list << rec.merge(stamps)
   end
   puts('Upserting...')
@@ -42,7 +44,8 @@ def upload(filename, model, keymap: {}, filter: [])
     # rubocop:enable Rails/SkipsModelValidations:
     print progress_line(slice_ix, list.size / BATCH_SIZE)
   end
-  puts("Finished #{filename}: #{list.size}\n\n")
+  puts("Finished #{filename}: #{list.size} rows persisted")
+  puts "=========+++++++++++++=========\n"
 end
 
 # rubocop:disable Metrics/BlockLength
@@ -54,7 +57,16 @@ namespace :upload_csv do
   task foods: :environment do
     upload 'food.csv',
            Food,
-           keymap: { fdc_id: :id, food_category_id: :wweia_food_category_id }
+           keymap: { fdc_id: :id, food_category_id: :wweia_food_category_id },
+           filter: [:description]
+  end
+
+  task food_translations: :environment do
+    upload 'food.csv',
+           HelperModels::Globalize::FoodTranslation,
+           keymap: { fdc_id: :food_id, food_category_id: :wweia_food_category_id },
+           filter: [:data_type, :wweia_food_category_id, :publication_date],
+           add: {locale: 'en'}
   end
 
   task food_nutrient_sources: :environment do
@@ -173,8 +185,11 @@ namespace :upload_csv do
   task all: :environment do
     tables = %w[
       wweia_food_categories
+
       foods
-      nutirents
+      food_translations
+
+      nutrients
       food_nutrients
     ]
 

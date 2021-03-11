@@ -43,5 +43,6 @@ module Nutrion
     end
 
     config.assets.check_precompiled_asset = false
+    config.i18n.available_locales = %i[en ru]
   end
 end

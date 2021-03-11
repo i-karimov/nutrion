@@ -11,6 +11,14 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'index'
   body
+    ul
+      br
+      br
+      li
+        = link_to 'English', root_path(locale: :en)
+      li 
+        = link_to 'Русский', root_path(locale: :ru)
+
     p.notice
       = notice
     p.alert

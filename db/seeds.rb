@@ -10,3 +10,7 @@ if Rails.env.development?
     password_confirmation: 'password'
   ) 
 end
+
+puts '====== START UPLOADING CSV ======='
+Rake::Task['upload_csv:all'].invoke
+puts '====== FINISH UPLOADING CSV ======'
