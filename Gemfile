@@ -34,6 +34,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'rspec-rails', '~> 4.1.0'
   gem 'rubocop'
   gem 'rubocop-performance'
@@ -83,3 +84,9 @@ gem 'arctic_admin'
 # DB data localization
 gem 'activemodel-serializers-xml'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
+
+# Configs
+gem 'config'
+
+# Google Cloud
+gem 'google-cloud-translate'
