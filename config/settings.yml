@@ -1,4 +1,4 @@
 google:
   project_id: <%= ENV["GOOGLE_CLOUD_PROJECT_ID"] %>
-  translate: 
+  translate:
     api_key: <%= ENV["GOOGLE_TRANSLATE_API_KEY"] %>

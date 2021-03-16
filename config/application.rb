@@ -30,7 +30,7 @@ module Nutrion
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.autoload_paths << Rails.root.join('services')
 
     # Don't generate system test files.
     config.generators do |g|
