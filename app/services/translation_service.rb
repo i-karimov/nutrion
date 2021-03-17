@@ -17,8 +17,11 @@ class TranslationService < ApplicationService
     @strings.each do |input|
       @result = []
       output = @client.translate(input, to: @to)
-      Rails.logger.info "Google::Translate: #{Rainbow(input.upcase).red} ===> #{Rainbow(output.upcase).green}"
+      Rails.logger.info "Google::Translate: #{Rainbow(input).red} ===> #{Rainbow(output).green}"
       @result << output
+    end
+    File.open("translations_#{DateTime.now}.txt", "w+") do |f|
+      @result.each { |line| f.puts(line) }
     end
     @result
   end
