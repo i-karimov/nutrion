@@ -63,7 +63,7 @@ namespace :upload_csv do
 
   task food_translations: :environment do
     upload 'food.csv',
-           HelperModels::Globalize::FoodTranslation,
+           FoodTranslation,
            keymap: { fdc_id: :food_id, food_category_id: :wweia_food_category_id },
            filter: [:data_type, :wweia_food_category_id, :publication_date],
            add: {locale: 'en'}
@@ -194,6 +194,10 @@ namespace :upload_csv do
     ]
 
     tables.uniq.each { |t| Rake::Task["upload_csv:#{t}"].invoke }
+
+    puts '=== Striping Foods ==='
+    Rake::Task["stipr:foods"].invoke
+    puts '=== Done. ===\n\n'
   end
 end
 # rubocop:enable Metrics/BlockLength

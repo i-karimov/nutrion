@@ -1,2 +1,3 @@
-app: rails s -p 3000
-wpack: ./bin/webpack-dev-server
+app: bundle exec rails s -p 3000
+webpack: ./bin/webpack-dev-server
+sidekiq: bundle exec sidekiq -q default -q mailers

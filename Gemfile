@@ -40,6 +40,7 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -84,9 +85,11 @@ gem 'arctic_admin'
 # DB data localization
 gem 'activemodel-serializers-xml'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
-
+gem 'globalize-accessors'
 # Configs
 gem 'config'
 
 # Google Cloud
 gem 'google-cloud-translate'
+
+gem 'sidekiq'
