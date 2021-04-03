@@ -5,6 +5,16 @@ ActiveAdmin.register Nutrient do
   # Uncomment all parameters which should be permitted for assignment
   #
   permit_params :name, :unit_name, :nutrient_nbr, :rank
+
+  index do
+    selectable_column
+    id_column
+    column :name
+    column :data_type
+    columns
+    actions
+  end
+
   #
   # or
   #
