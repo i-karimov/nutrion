@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_102016) do
+ActiveRecord::Schema.define(version: 2021_04_03_143632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,8 +76,17 @@ ActiveRecord::Schema.define(version: 2021_03_11_102016) do
     t.index ["wweia_food_category_id"], name: "index_foods_on_wweia_food_category_id"
   end
 
-  create_table "nutrients", force: :cascade do |t|
+  create_table "nutrient_translations", force: :cascade do |t|
+    t.bigint "nutrient_id", null: false
+    t.string "locale", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "name"
+    t.index ["locale"], name: "index_nutrient_translations_on_locale"
+    t.index ["nutrient_id"], name: "index_nutrient_translations_on_nutrient_id"
+  end
+
+  create_table "nutrients", force: :cascade do |t|
     t.string "unit_name"
     t.integer "nutrient_nbr"
     t.integer "rank"
